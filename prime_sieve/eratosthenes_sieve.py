@@ -41,12 +41,9 @@ def eratosthenes_wheel(limit=1000000, wheel_size=210):
 def prime_factor(n):
     """Return a list of primes whose product is n."""
     prime_factors = []
-    while True:
-        if n % 2 == 0:
-            prime_factors.append(2)
-            n /= 2
-        else:
-            break
+    while (n & 1 == 0):
+        prime_factors.append(2)
+        n >>= 1
     i = 3
     while n != 1:
         if n % i == 0:
